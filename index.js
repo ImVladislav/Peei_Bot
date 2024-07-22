@@ -266,7 +266,6 @@ bot.on("callback_query", (query) => {
     }
   }
 });
-
 // Handle text messages for amount input
 bot.on("message", (msg) => {
   const chatId = msg.chat.id;
