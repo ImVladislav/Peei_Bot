@@ -1,8 +1,10 @@
+const express = require("express");
 const TelegramBot = require("node-telegram-bot-api");
 require("dotenv").config();
 const path = require("path");
 const crypto = require("crypto");
 
+const app = express();
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const liqpayPublicKey = process.env.LIQPAY_PUBLIC_KEY;
 const liqpayPrivateKey = process.env.LIQPAY_PRIVATE_KEY;
@@ -298,4 +300,7 @@ bot.on("message", (msg) => {
     delete userPreferences[chatId].currency;
   }
 });
-console.log("Бот запущений!");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

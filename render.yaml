@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: peei_bot
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        value: YOUR_TELEGRAM_BOT_TOKEN
+    ports:
+      - port: 3000
