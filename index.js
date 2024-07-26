@@ -229,48 +229,48 @@ bot.on("callback_query", (query) => {
         projectDescription[lang],
         createDonateKeyboard(lang)
       );
-      }
-      // else if (callbackData === "offer") {
-      // Handle offer document based on language
-      // const filePath =
-      //   lang === "ua"
-      //     ? path.join(__dirname, "public", "PublicOfferUA.docx")
-      //     : path.join(__dirname, "public", "PublicOffer.docx");
-      // bot.sendDocument(chatId, filePath);
-       else if (callbackData === "offer") {
-         // const { lang } = userPreferences[chatId];
-         // const offerUrl = lang === "ua" ? "https://peei.org.ua/uk/public-offer" : "https://peei.org.ua/en/public-offer";
-         bot.sendMessage(chatId, offerAgreementText[lang]);
-       } else if (callbackData === `back_to_main_${lang}`) {
-         // Handle back to main menu
-         bot.sendMessage(
-           chatId,
-           "Please choose an option / Будь ласка, оберіть опцію",
-           createMainMenuKeyboard(lang)
-         );
-       } else if (callbackData === `back_to_projects_${lang}`) {
-         // Handle back to projects menu
-         bot.sendMessage(
-           chatId,
-           donateText[lang],
-           createProjectMenuKeyboard(lang)
-         );
-       } else if (callbackData === `back_${lang}`) {
-         // Handle back to language selection
-         bot.sendMessage(chatId, "Оберіть мову:", languageKeyboard);
-       } else if (callbackData === "choose_currency") {
-         // Handle currency selection
-         bot.sendMessage(
-           chatId,
-           currencySelection[lang],
-           createCurrencyKeyboard(lang)
-         );
-       } else if (callbackData.startsWith("currency_")) {
-         // Handle amount input
-         const currency = callbackData.split("_")[1].toUpperCase();
-         userPreferences[chatId].currency = currency;
-         bot.sendMessage(chatId, amountRequest[lang]);
-       }
+    }
+    // else if (callbackData === "offer") {
+    // Handle offer document based on language
+    // const filePath =
+    //   lang === "ua"
+    //     ? path.join(__dirname, "public", "PublicOfferUA.docx")
+    //     : path.join(__dirname, "public", "PublicOffer.docx");
+    // bot.sendDocument(chatId, filePath);
+    else if (callbackData === "offer") {
+      // const { lang } = userPreferences[chatId];
+      // const offerUrl = lang === "ua" ? "https://peei.org.ua/uk/public-offer" : "https://peei.org.ua/en/public-offer";
+      bot.sendMessage(chatId, offerAgreementText[lang]);
+    } else if (callbackData === `back_to_main_${lang}`) {
+      // Handle back to main menu
+      bot.sendMessage(
+        chatId,
+        "Please choose an option / Будь ласка, оберіть опцію",
+        createMainMenuKeyboard(lang)
+      );
+    } else if (callbackData === `back_to_projects_${lang}`) {
+      // Handle back to projects menu
+      bot.sendMessage(
+        chatId,
+        donateText[lang],
+        createProjectMenuKeyboard(lang)
+      );
+    } else if (callbackData === `back_${lang}`) {
+      // Handle back to language selection
+      bot.sendMessage(chatId, "Оберіть мову:", languageKeyboard);
+    } else if (callbackData === "choose_currency") {
+      // Handle currency selection
+      bot.sendMessage(
+        chatId,
+        currencySelection[lang],
+        createCurrencyKeyboard(lang)
+      );
+    } else if (callbackData.startsWith("currency_")) {
+      // Handle amount input
+      const currency = callbackData.split("_")[1].toUpperCase();
+      userPreferences[chatId].currency = currency;
+      bot.sendMessage(chatId, amountRequest[lang]);
+    }
   }
 });
 // Handle text messages for amount input

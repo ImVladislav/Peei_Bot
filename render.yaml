@@ -1,12 +1,1 @@
-services:
-  - type: web
-    name: peei_bot
-    env: node
-    plan: free
-    buildCommand: "npm install"
-    startCommand: "npm start"
-    envVars:
-      - key: TELEGRAM_BOT_TOKEN
-        value: YOUR_TELEGRAM_BOT_TOKEN
-    ports:
-      - port: 3000
+curl -k -F "url=https://peei-bot-server-7293fa0825c7.herokuapp.com/new-message" https://api.telegram.org/bot7347562806:AAHjKyReZPKyTC_JMksLMgh_4h27LTEekn0/setWebhook
